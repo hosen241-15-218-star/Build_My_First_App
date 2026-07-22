@@ -1,0 +1,59 @@
+class University {
+    private String universityName;   
+    
+// Encapsulation
+    public University(String universityName) {
+        this.universityName = universityName;
+    }
+    public String getUniversityName() {
+        return universityName;
+    }
+}
+// Inheritance
+class Department extends University {
+    String departmentName;
+    public Department(String universityName, String departmentName) {
+        super(universityName);
+        this.departmentName = departmentName;
+    }
+
+// Polymorphism
+    public void display() {
+        System.out.println("University : " + getUniversityName());
+        System.out.println("Department : " + departmentName);
+    }
+}
+
+// Inheritance
+class Student extends Department {
+    String studentName;
+    int id;
+
+    public Student(String universityName, String departmentName, String studentName, int id) {
+        super(universityName, departmentName);
+        this.studentName = studentName;
+        this.id = id;
+    }
+
+// Polymorphism
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("Student Name : " + studentName);
+        System.out.println("Student ID   : " + id);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+    Student s1 = new Student(
+        "Daffodil International University",
+        "CSE",
+        "Srabon",
+        241
+        );
+        
+        s1.display();
+    }
+}
